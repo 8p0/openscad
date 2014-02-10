@@ -11,6 +11,13 @@
 #include <vector>
 #include <QMutex>
 
+enum export_type_e {
+	EXPORT_TYPE_UNKNOWN,
+	EXPORT_TYPE_STL,
+	EXPORT_TYPE_AMF,
+	EXPORT_TYPE_OFF
+};
+
 class MainWindow : public QMainWindow, public Ui::MainWindow
 {
 	Q_OBJECT
@@ -142,9 +149,10 @@ private slots:
 	void actionDisplayAST();
 	void actionDisplayCSGTree();
 	void actionDisplayCSGProducts();
-	void actionExportSTLorOFF(bool stl_mode);
+	void actionExport(export_type_e, const char *, const char *);
 	void actionExportSTL();
 	void actionExportOFF();
+	void actionExportAMF();
 	void actionExportDXF();
 	void actionExportSVG();
 	void actionExportCSG();
